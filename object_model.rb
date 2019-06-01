@@ -43,5 +43,5 @@ puts "hello".p_muruso
 using KernelExtentions
 puts "hoge".p_muruso
 # muruso
-
+# hoge
 
