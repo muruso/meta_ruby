@@ -37,11 +37,40 @@ module KernelExtentions
   end
 end
 
-puts "hello".p_muruso
+#puts "hello".p_muruso
 # undefined method `p_muruso' for "hello":String
 
 using KernelExtentions
 puts "hoge".p_muruso
 # muruso
 # hoge
+
+
+
+class MyClass
+  def method_a
+    puts "hello my name is Muru"
+  end
+
+  def method_b
+    method_a
+  end
+end
+
+
+module MyClassRefinements
+  refine MyClass do
+    def method_a
+      puts "Oh!"
+    end
+  end
+end
+
+using MyClassRefinements
+
+puts MyClass.new.method_a
+# Oh!
+puts MyClass.new.method_b
+# hello my name is Muru
+# これヤバいね
 
